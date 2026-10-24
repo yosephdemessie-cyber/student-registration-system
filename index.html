@@ -4,13 +4,173 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>School Student Registration System</title>
-
+    <title>School Student Management System</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
+
 <body>
+    <main class="container">
+        <header class="page-header">
+            <p class="eyebrow">SCHOOL MANAGEMENT</p>
+            <h1>Student Registration System</h1>
+            <p>Register and manage your student records in one place.</p>
+        </header>
 
-    <h1> Student Registration System</h1>
+        <!-- 1. REGISTER STUDENTS -->
+        <section class="panel" id="registration">
+            <h2 id="formTitle">Register a Student</h2>
 
+            <form id="studentForm">
+                <input type="hidden" id="editRecordId">
+
+                <div class="form-grid">
+                    <label for="studentId">
+                        Student ID *
+                        <input
+                            type="text"
+                            id="studentId"
+                            placeholder="e.g. HS001"
+                            maxlength="30"
+                            required
+                        >
+                    </label>
+
+                    <label for="firstName">
+                        First Name *
+                        <input
+                            type="text"
+                            id="firstName"
+                            placeholder="Enter first name"
+                            maxlength="80"
+                            required
+                        >
+                    </label>
+
+                    <label for="lastName">
+                        Last Name *
+                        <input
+                            type="text"
+                            id="lastName"
+                            placeholder="Enter last name"
+                            maxlength="80"
+                            required
+                        >
+                    </label>
+
+                    <label for="gender">
+                        Gender *
+                        <select id="gender" required>
+                            <option value="">Select gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </label>
+
+                    <label for="grade">
+                        Grade *
+                        <select id="grade" required>
+                            <option value="">Select grade</option>
+                            <option value="9">Grade 9</option>
+                            <option value="10">Grade 10</option>
+                            <option value="11">Grade 11</option>
+                            <option value="12">Grade 12</option>
+                        </select>
+                    </label>
+
+                    <label for="section">
+                        Section *
+                        <input
+                            type="text"
+                            id="section"
+                            placeholder="e.g. A"
+                            maxlength="20"
+                            required
+                        >
+                    </label>
+
+                    <label for="dob">
+                        Date of Birth
+                        <input type="date" id="dob">
+                    </label>
+
+                    <label for="guardianPhone">
+                        Guardian Phone
+                        <input
+                            type="tel"
+                            id="guardianPhone"
+                            placeholder="Enter phone number"
+                            maxlength="30"
+                        >
+                    </label>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="saveButton" class="button primary">
+                        Register Student
+                    </button>
+
+                    <button type="button" id="clearButton" class="button secondary">
+                        Clear Form
+                    </button>
+
+                    <button type="button" id="cancelEditButton"
+                            class="button secondary" hidden>
+                        Cancel Editing
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- 2 AND 3. DISPLAY AND SEARCH STUDENTS -->
+        <section class="panel" id="studentRecords">
+            <div class="section-heading">
+                <div>
+                    <h2>Registered Students</h2>
+                    <p class="muted">Search, edit, or delete student records.</p>
+                </div>
+                <span id="studentCount" class="count">0 students</span>
+            </div>
+
+            <div class="search-bar">
+                <label for="searchInput">Search students</label>
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Search by student ID, first name, or last name..."
+                >
+            </div>
+
+            <p id="emptyMessage" class="empty-message">
+                No students registered yet.
+            </p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Gender</th>
+                            <th>Grade</th>
+                            <th>Section</th>
+                            <th>Date of Birth</th>
+                            <th>Guardian Phone</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="studentList"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Student Registration System</p>
+            <p class="muted">Frontend learning project</p>
+        </footer>
+    </main>
 </body>
 </html>
