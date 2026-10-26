@@ -103,6 +103,22 @@ body {
     color: #94a3b8;
 }
 
+.school-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.school-images img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
 .form-grid input:focus,
 .form-grid select:focus,
 .search-bar input:focus {
